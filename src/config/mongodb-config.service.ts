@@ -8,7 +8,13 @@ export class MongodbConfigService implements MongooseOptionsFactory {
 
   public createMongooseOptions(): MongooseModuleOptions {
     return {
-      uri: this.configService.get<string>('MONGODB_URI'),
+      uri: `mongodb+srv://${this.configService.get<string>(
+        'MONGODB_USERNAME',
+      )}:${this.configService.get<string>(
+        'MONGODB_PASSWORD',
+      )}@cluster0.zseyd.mongodb.net/${this.configService.get<string>(
+        'MONGODB_DBNAME',
+      )}?retryWrites=true&w=majority`,
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
