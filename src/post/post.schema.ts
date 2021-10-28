@@ -1,9 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { Document } from 'mongoose'
+import { Document, Schema as MongooseSchema } from 'mongoose'
+import { User } from 'src/user/user.schema'
 
 @Schema()
 export class Post extends Document {
-  @Prop({ type: String, index: true, unique: true, required: true })
+  @Prop({ index: true, unique: true, required: true })
   title: string
 
   @Prop({ required: true })
@@ -20,6 +21,9 @@ export class Post extends Document {
 
   @Prop({ default: 0 })
   views: number
+
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: User.name })
+  user: User
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post)

@@ -8,9 +8,9 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import * as bcrypt from 'bcrypt'
 
-import { CreateUserDto } from './dto/create-user.dto'
-import { PaginationQueryDto } from './dto/pagination-query.dto'
-import { User } from './user.schema'
+import { CreateUserDto } from '../dto/create-user.dto'
+import { PaginationQueryDto } from '../dto/pagination-query.dto'
+import { User } from '../user.schema'
 
 @Injectable()
 export class UserService {

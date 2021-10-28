@@ -8,10 +8,10 @@ import {
   Query,
 } from '@nestjs/common'
 
-import { CreateUserDto } from './dto/create-user.dto'
-import { PaginationQueryDto } from './dto/pagination-query.dto'
-import { User } from './user.schema'
-import { UserService } from './user.service'
+import { CreateUserDto } from '../dto/create-user.dto'
+import { PaginationQueryDto } from '../dto/pagination-query.dto'
+import { User } from '../user.schema'
+import { UserService } from '../services/user.service'
 
 @Controller('user')
 export class UserController {
